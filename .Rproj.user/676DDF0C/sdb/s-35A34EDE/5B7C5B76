@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\nmakeCacheMatrix <- function(x = matrix()) {\n        inverseMatrix <- NULL\n        set <- function(y)  {\n                x <<- y\n                inverseMatrix <<- NULL\n        }\n        get <- function() x\n        setInverseMatrix <- function(inverse) {\n                inverseMatrix <<- inverse\n        }\n        getInverseMatrix <- function() inverseMatrix\n        list(set = set, get = get,setInverseMatrix = setInverseMatrix, getInverseMatrix = getInverseMatrix)\n}\n\n\n\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n        inverseMatrix <- x$getInverseMatrix()\n        if(!is.null(inverseMatrix)) {\n                message(\"getting cached data\")\n                return(inverseMatrix)\n        }\n        data <- x$get() \n        if(nrow(data) != ncol(data)) message(\"Matrix is not a square\")\n        inverseMatrix <- solve(data)\n        x$setInverseMatrix(inverseMatrix)\n        inverseMatrix\n}\n",
+    "created" : 1471531495960.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3011371285",
+    "id" : "5B7C5B76",
+    "lastKnownWriteTime" : 1471533679,
+    "last_content_update" : 1471533679001,
+    "path" : "~/RCourse/ProgrammingAssignment2-master/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
